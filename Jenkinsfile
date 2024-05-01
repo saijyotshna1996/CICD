@@ -30,7 +30,7 @@ pipeline {
             steps {
                 // Add deployment steps here
                 echo 'Deploying to production...'
-                // For example, deploy to a Tomcat server
+                // Uncomment and add deployment commands
                 // sh 'mvn tomcat7:redeploy'
             }
             // You can add conditions for deploying to specific environments
