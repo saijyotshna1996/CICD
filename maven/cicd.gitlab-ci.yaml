@@ -1,0 +1,19 @@
+image: maven:3.8.1-jdk-11
+
+stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  script:
+    - mvn clean package
+  only:
+    - master
+
+test_job:
+  stage: test
+  script:
+    - mvn test
+  only:
+    - master
