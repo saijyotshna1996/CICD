@@ -1,0 +1,26 @@
+build:
+  stage: build
+  script:
+    - echo "Building the project..."
+    - mvn package
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "cicd"'
+      when: always
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - mvn test
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "cicd"'
+      when: always
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to server..."
+    - deploy_script_here
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "cicd"'
+      when: manual  # This makes the deployment a manual action in the GitLab UI
